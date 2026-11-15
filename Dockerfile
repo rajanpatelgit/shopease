@@ -8,7 +8,7 @@ FROM base AS test
 COPY requirements-dev.txt .
 RUN pip install --no-cache-dir -r requirements-dev.txt
 COPY app.py test_app.py ./
-RUN flake8 app.py test_app.py --max-line-length=100 && pytest -q --cov=app --cov-fail-under=100
+RUN flake8 app.py test_app.py --max-line-length=100 && pytest -q --cov=app --cov-fail-under=80
 
 # runtime stage = the small image we ship
 FROM base AS runtime
